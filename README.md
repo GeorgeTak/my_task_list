@@ -1,16 +1,30 @@
-# my_task_list
+# My Task List App
 
-A new Flutter project.
+A privacy-focused Flutter application designed to help you manage chores, priorities, and to-do lists locally on your device.
 
-## Getting Started
+## 🚀 Getting Started
 
-This project is a starting point for a Flutter application.
+This project uses Google AdMob. To keep sensitive Ad Unit IDs secure, the `ad_helper.dart` file has been excluded from this repository. 
 
-A few resources to get you started if this is your first Flutter project:
+**To run this app, you must create this file manually:**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Navigate to the `lib/` folder in your project.
+2. Create a new file named `ad_helper.dart`.
+3. Paste the following code into it (these are Google's public Test IDs, so the app will run safely without real ads):
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```dart
+import 'dart:io';
+
+class AdHelper {
+  static String get bannerAdUnitId {
+    if (Platform.isAndroid) {
+      // Google Test Banner ID for Android
+      return 'ca-app-pub-3940256099942544/6300978111';
+    } else if (Platform.isIOS) {
+      // Google Test Banner ID for iOS
+      return 'ca-app-pub-3940256099942544/2934735716';
+    } else {
+      throw UnsupportedError("Unsupported platform");
+    }
+  }
+}
